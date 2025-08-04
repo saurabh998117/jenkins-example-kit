@@ -15,4 +15,15 @@ pipeline {
             }
         }
     }
+    post{
+        always{
+            sh 'echo "always"'
+        }
+        success{
+            sh  'echo "uccess"'
+        }
+        failure{
+            sh 'echo "failure"'
+        }
+    }
 }
