@@ -1,11 +1,16 @@
 pipeline {
     agent any
+    environment{
+        VERSION_NAME="17"
+    }
     stages {
         stage("Compile") {
             steps {
                 echo "Compiling Java file..."
                 sh 'javac Test.java'
-                sh 'ls -l' // Optional: Shows if Test.class is generated
+                sh 'ls -l' // Optional: Shows if Test
+                // .class is generated
+                sh 'echo "${VERSION_NAME}"'
             }
         }
         stage("Run") {
