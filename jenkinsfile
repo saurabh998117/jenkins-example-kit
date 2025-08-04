@@ -1,16 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Compile') {
+        stage("Compile") {
             steps {
-                echo 'Compiling Java file...'
+                echo "Compiling Java file..."
                 sh 'javac Test.java'
+                sh 'ls -l' // Optional: Shows if Test.class is generated
             }
         }
-        stage('Run') {
+        stage("Run") {
             steps {
-                echo 'Running Java program...'
-                sh 'java Test'
+                echo "Running Java program..."
+                sh 'java -cp . Test'
             }
         }
     }
